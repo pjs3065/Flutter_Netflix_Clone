@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:neflix_clone/model/model_movie.dart';
+import 'package:neflix_clone/screen/detail_screen.dart';
 
 class CarouseImage extends StatefulWidget {
   final List<Movie> movies;
@@ -110,7 +111,17 @@ class _CarouseImageState extends State<CarouseImage> {
                     children: <Widget>[
                       IconButton(
                         icon: Icon(Icons.info),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute<Null>(
+                              fullscreenDialog: true,
+                              builder: (BuildContext context) {
+                                return DetailScreen(
+                                    movie: movies[_currentPage]);
+                              },
+                            ),
+                          );
+                        },
                       ),
                       Text(
                         '정보',
