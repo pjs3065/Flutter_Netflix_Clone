@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neflix_clone/model/model_movie.dart';
+import 'package:neflix_clone/widget/carousel_slider.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -13,7 +14,25 @@ class _HomeScreenState extends State<HomeScreen> {
       'keyword': '사랑/로맨스/판타지',
       'poster': 'test_movie_1.png',
       'like': false
-    })
+    }),
+    Movie.fromMap({
+      'title': '사랑의 불시착',
+      'keyword': '공포/호러/액션',
+      'poster': 'test_movie_1.png',
+      'like': false
+    }),
+    Movie.fromMap({
+      'title': '사랑의 불시착',
+      'keyword': '사랑/로맨스/판타지',
+      'poster': 'test_movie_1.png',
+      'like': false
+    }),
+    Movie.fromMap({
+      'title': '사랑의 불시착',
+      'keyword': '사랑/로맨스/판타지',
+      'poster': 'test_movie_1.png',
+      'like': false
+    }),
   ];
 
   @override
@@ -23,7 +42,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return TopBar();
+    return ListView(
+      children: <Widget>[
+        Stack(
+          children: <Widget>[
+            CarouseImage(movies: movies),
+            TopBar(),
+          ],
+        )
+      ],
+    );
   }
 }
 
@@ -57,7 +85,7 @@ class TopBar extends StatelessWidget {
             Container(
               padding: EdgeInsets.only(right: 1),
               child: Text(
-                '내가 찜한 콘텐',
+                '내가 찜한 콘텐츠',
                 style: TextStyle(fontSize: 14),
               ),
             ),
