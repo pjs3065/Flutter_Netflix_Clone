@@ -157,6 +157,5 @@ List<Widget> makeIndicator(List list, int _currentPage) {
       ),
     );
   }
-
   return result;
 }
